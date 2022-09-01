@@ -1,3 +1,14 @@
+:root{
+  --backgroundColor : #282c34;
+  --textBackground : #161a23;
+  --themecolor : #f85149;
+  --secondarythemecolor : #61dafb;
+  --buttoncolor : #30a14e;
+  --themelight : #fff;
+  --cardcolor :#0D1117;
+}
+
+
 .App {
   text-align: center;
 }
@@ -14,18 +25,18 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: var(--backgroundColor);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--themelight);
 }
 
 .App-link {
-  color: #61dafb;
+  color: var(--secondarythemecolor)
 }
 
 @keyframes App-logo-spin {
@@ -36,3 +47,117 @@
     transform: rotate(360deg);
   }
 }
+
+/* -------------------------------Dashboard Css Starts ------------------------*/
+.heading{
+  text-align:center;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(0.25turn, rgba(56,2,155,0), rgba(255,255,255), rgba(56,2,155,0));
+  border-image-slice: 1;
+  width:100%;
+  color:var(--themelight)
+}
+.blog{
+  width: 370px;
+  color:var(--themelight);
+  text-align:center;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(0.25turn, rgba(56,2,155,0), rgba(255,255,255), rgba(56,2,155,0));
+  border-image-slice: 1;
+  width:100%;
+}
+.blog Card{
+  height: 300px;
+}
+.stats{
+  height: 20vh;
+  color:var(--themelight)
+}
+Navbar{
+  background-color: var(--backgroundColor);
+}
+/* -------------------------------Dashboard Css Ends---------------------------*/
+/* -------------------------------Home Css Starts---------------------------*/.
+.button{
+  background-color: rgba(255, 255, 255, 0.29) ;
+}
+.filters{
+  background-color: rgba(255, 255, 255, 0.104) ;
+}
+
+.Home{
+  background-color: var(--backgroundColor);
+}
+.card{
+  background-color: var(--cardcolor);  
+  color: var(--themelight);
+  border-radius: 0 !important;
+}
+.card Link{
+  font-size: 16px;
+  color: var(--themecolor);
+}
+/* -------------------------------Home Css Ends---------------------------*/
+/* -------------------------------Auth Css Starts---------------------------*/
+.Signup{
+  background: var(--textBackground);
+  max-width: 60vw;
+}
+
+.Card{
+ color: var(--themelight)
+}
+.Card button{
+    background-color: var(--buttoncolor);
+}
+.Card button:hover{
+    background-color:  var(--buttoncolor);
+}
+.Image img{
+    min-width: 200px;
+    min-height: 200px;
+    max-height: 400px;
+    max-width: 400px;
+}
+
+.Link{ 
+ text-decoration: none;
+ color: var(--themecolor);
+}
+.Link:hover{ 
+ text-decoration: none;
+ color: var(--themecolor);
+}
+/* -------------------------------Auth Css Ends---------------------------*/
+/* -------------------------------Add Blog Css starts---------------------------*/
+.addblog{
+  height: 80vh;
+}
+.textarea{
+  height: 30vh;
+}
+.categories{
+height: 10vh;
+}
+.categories{
+  margin-top: auto;
+}
+
+/* -------------------------------Add Blog Css Ends---------------------------*/
+/* -------------------------------User Profile Starts-------------------------*/
+.user{
+  max-width: 35vw;
+  height: 48vh;
+  background-color: var(--backgroundColor);
+  color: var(--themelight);
+}
+@media screen and (max-width: 700px){
+  .user{
+    max-width: 56vw !important;
+  }
+}
+.personalDetails img{
+ width: 160px;
+ height: 160px;
+}
+/* -------------------------------User Profile Ends---------------------------*/
