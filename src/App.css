@@ -69,9 +69,20 @@
 .blog Card{
   height: 300px;
 }
-.stats{
+.stats,
+.profile{
   height: 20vh;
   color:var(--themelight)
+}
+.profile{
+  height: 30vh;
+}
+.profile button{
+  background: none;
+  border: none;
+}
+.blog img{
+  width: 100%;
 }
 Navbar{
   background-color: var(--backgroundColor);
@@ -132,15 +143,24 @@ Navbar{
 /* -------------------------------Add Blog Css starts---------------------------*/
 .addblog{
   height: 80vh;
+  background-color: var(--backgroundColor);
 }
 .textarea{
   height: 30vh;
 }
 .categories{
-height: 10vh;
+height: 16vh;
 }
-.categories{
+.category{
   margin-top: auto;
+  color: #000;
+  padding: 5px 5px;
+  border: 1px solid var(--secondarythemecolor);
+  background-color: var(--textBackground);
+}
+.category button{
+  border: none;
+  background: none;
 }
 
 /* -------------------------------Add Blog Css Ends---------------------------*/
