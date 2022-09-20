@@ -9,18 +9,22 @@ const url = '';
 
 const Dashboard = () => {
   const [myblogs,setmyBlogs] = useState([]);
+  const [mydata,setmyData] = useState([]);
   const userId = localStorage.getItem('id');
   useEffect(()=>{
     GetBlogs();
+    getUserData();
   },[])
   
   const GetBlogs = () =>{
-    axios.get(`http://localhost:8000/notes/get/${userId}`)
+    axios.get(`http://localhost:8000/notes/get/${userId}`,{
+      "content-type":"application/json"
+    })
     .then((res)=>{
       let array =[res.data];
       setmyBlogs(array);
-      console.log(myblogs);
     })
+
 
     if(myblogs.length > 0)
     {
@@ -47,6 +51,43 @@ const Dashboard = () => {
 
 
   }
+
+  const getUserData = ()=>{
+    axios.get(`http://localhost:8000/user/get/${userId}`,{
+      "content-type": "application/json",
+    })
+    .then((res)=>{
+      let array =[res.data];
+      setmyData(array);
+    })
+    if(mydata.length > 0)
+    {
+      return (
+        mydata[0].data.map((e)=>{
+          return(
+            <div>
+            <div class="m-2">
+              <h5 className="fst-italic">
+                Name -{" "}
+                <span className="fst-italic fw-light fs-6">
+                  {e.username}
+                </span>
+              </h5>
+            </div>
+            <div class="m-2">
+              <h5 className="fst-italic">
+                Email -{" "}
+                <span className="fst-italic fw-light fs-6">
+                  {e.email}
+                </span>
+              </h5>
+            </div>
+            </div>
+          )
+        })
+      )
+    }
+  }
    
   if(userId)
   {
@@ -72,22 +113,7 @@ const Dashboard = () => {
                   <h4 className="my-auto fst-italic p-2"> Profile</h4>
                   <button className='my-auto'><img src="https://img.icons8.com/ios-glyphs/25/FFFFFF/edit--v1.png" /></button>
                 </div>
-                <div class="m-2">
-                  <h5 className="fst-italic">
-                    Name -{" "}
-                    <span className="fst-italic fw-light fs-6">
-                      Lorem someone
-                    </span>
-                  </h5>
-                </div>
-                <div class="m-2">
-                  <h5 className="fst-italic">
-                    Address -{" "}
-                    <span className="fst-italic fw-light fs-6">
-                      Lrgre rggre lorem rrrgorem someone
-                    </span>
-                  </h5>
-                </div>
+                {getUserData()}
               </div>
               <div className="stats border rounded m-2 p-2">
                 <h4 class="fst-italic p-2">Stats</h4>
