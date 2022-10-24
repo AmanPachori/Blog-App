@@ -57,6 +57,10 @@
   width:100%;
   color:var(--themelight)
 }
+.header button{
+  background: none;
+  border : none
+}
 .blog{
   width: 370px;
   color:var(--themelight);
@@ -176,8 +180,21 @@ height: 16vh;
     max-width: 56vw !important;
   }
 }
-.personalDetails img{
+.personalDetails img
+{
  width: 160px;
  height: 160px;
+}
+.image img{
+  width: 120px;
+  height: 120px;
+}
+.Blogs{
+  display: flex;
+  justify-content: center;
+}
+.blog{
+  max-width: 65vw;
+
 }
 /* -------------------------------User Profile Ends---------------------------*/

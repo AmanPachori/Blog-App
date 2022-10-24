@@ -1,10 +1,34 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import Navbar from '../Navbar/navbar'
+
 import {Container,Card,Button,Row,Col, Nav} from 'react-bootstrap';
 import '../../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
-const profile = () => {
+
+const Profile = () => {
+  const {id} = useParams();
+  const [username,setusername] = useState();
+  const [address,setaddress] = useState();
+  const [email,setemail] = useState();
+
+  const headers = {
+    "Content-Type": "application/json",
+  };
+  const url = `http://localhost:8000/user/get/${id}`
+  useEffect(() => {
+    axios.get(url,{
+      headers
+    })
+    .then((res)=>{
+      setusername(res.data.data[0].username);
+      setaddress(res.data.data[0].address);
+      setemail(res.data.data[0].email);
+    })
+  }, [])
+  
   return (
     <div>
         <Navbar/>
@@ -12,13 +36,12 @@ const profile = () => {
                <div>
                 <div className='personalDetails'>
                  <img src='https://xsgames.co/randomusers/assets/images/favicon.png'></img>
-                 <h6 className='fs-1'> Name of user</h6>
-                 <h6 className='fw-lighter fs-6'> Address of the user </h6>
+                 <h6 className='fs-1'> {username}</h6>
+                 <h6 className='fw-lighter fs-6'>{address}</h6>
                 </div>
                 <div className='details my-5'>
+                 <h6>Email : {email}</h6>
                  <h6>Number of Blogs : 102</h6>
-                 <h6>Likes : 320</h6>
-                 <h6>Comments : 360</h6>
                 </div>
                </div>
            </Container>
@@ -27,4 +50,4 @@ const profile = () => {
   )
 }
 
-export default profile
+export default Profile

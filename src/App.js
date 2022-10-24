@@ -21,10 +21,10 @@ function App() {
       <Route path="/" element={<Home />}/>
         <Route path="/add" element={<Addblog />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<Blog />} />
         <Route path="/signup" element={<Signup />} />
         <Route path='/signin' element={<Signin />} />
-        <Route path='/viewprofile' element={<Profile />} />
+        <Route path='/viewprofile/:id' element={<Profile />} />
     </Routes>
     </BrowserRouter>
     </div>
