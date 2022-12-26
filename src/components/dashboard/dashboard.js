@@ -47,10 +47,12 @@ const Dashboard = () => {
 
   const token = localStorage.getItem('jwt');
   const userId = localStorage.getItem('id');
-  const headers = {
-    "Content-Type": "application/json",
-    "Authorization": token,
-  };
+  const config = {
+    headers:{
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' +token
+    }
+  }
   const handleClose = () => {
     setShow(false);
     axios.put(`http://localhost:8000/user/update/${userId}`,{
@@ -95,9 +97,7 @@ const Dashboard = () => {
   
   const GetBlogs = () =>{
     axios
-      .get(`http://localhost:8000/notes/getuser/${userId}`, {
-        headers,
-      })
+      .get(`http://localhost:8000/notes/getuser/${userId}`,config )
       .then((res) => {
         let array = [res.data];
         setmyBlogs(array);
@@ -109,11 +109,10 @@ const Dashboard = () => {
 
   const getUserData = ()=>{
     axios
-      .get(`http://localhost:8000/user/get/${userId}`, {
-        headers,
-      })
+      .get(`http://localhost:8000/user/get/${userId}`,config)
       .then((res) => {
         let array = [res.data];
+        console.log(array);
         setmyData(array);
         setUsername(res.data.data[0].username);
         setAddress(res.data.data[0].address);
@@ -197,9 +196,9 @@ const Dashboard = () => {
                     myblogs[0]?.data.map((e) => {
                        return (
                          <Col className="blog border-bottom  w-100 col-lg-5 m-2 col-sm-12 text-start">
-                           <div className="p-2">
+                           <div className="p-2 d-flex flex-column align-items-center justify-content-center">
                              <div className="header d-flex justify-content-between">
-                               <h6 className="fs-5 fw-bold fst-italic">
+                               <h6 className="fs-3 fw-bolder fst-italic">
                                  {" "}
                                  {e.title}
                                </h6>
@@ -213,8 +212,8 @@ const Dashboard = () => {
                                </button>
                              </div>
 
-                             <img src={e.image} />
-                             <p>{e.mainContent}</p>
+                             <img className="blogImage pt-5 img-fluid " src={e.image} />
+                             <p className="p-2">{e.mainContent}</p>
                            </div>
                          </Col>
                        ); })

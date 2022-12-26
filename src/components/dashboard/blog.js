@@ -46,10 +46,10 @@ const GetBlogs = () => {
 
           <Row className="Blogs">
             <Col className="blog border rounded  m-2 p-2">  
-            <div className="p-2">
-            <h5 className="heading fst-italic">{title}</h5>
-            <img src={image} className="w-100"></img>
-            <p style={{color:'#fff'}} className="text-start">
+            <div className="p-2 container d-flex flex-column align-items-center justify-content-center">
+            <h5 className="heading fs-3 fst-italic">{title}</h5>
+            <img src={image} className="blogImage pt-5 img-fluid "></img>
+            <p style={{color:'#fff'}} className="fs-5 pt-3 my-1 px-5">
             {mainContent}
             </p>
             </div>

@@ -48,6 +48,13 @@
   }
 }
 
+.homeCard{
+height: 25vh
+}
+.homeCard .img{
+  height: 50%;
+}
+
 /* -------------------------------Dashboard Css Starts ------------------------*/
 .heading{
   text-align:center;
@@ -87,6 +94,11 @@
 }
 .blog img{
   width: 100%;
+}
+
+.blogImage{
+  max-width: 750px;
+  max-height: 750px;
 }
 Navbar{
   background-color: var(--backgroundColor);
@@ -137,7 +149,7 @@ Navbar{
 
 .Link{ 
  text-decoration: none;
- color: var(--themecolor);
+ color: var(--themelight);
 }
 .Link:hover{ 
  text-decoration: none;

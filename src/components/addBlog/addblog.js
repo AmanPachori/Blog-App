@@ -5,7 +5,13 @@ import Modal from 'react-bootstrap/Modal';
 import '../../App.css';
 import axios from 'axios';
 const url = 'http://localhost:8000/notes/add';
-
+const token = localStorage.getItem('jwt');
+const config = {
+  headers:{
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' +token
+  }
+}
 
 const Addblog = () => {
   const [title, setTitle] = useState("");
@@ -40,7 +46,7 @@ const Addblog = () => {
         image,
         userId,
         category
-      })
+      },config)
       .then((res) => {
         if(!res.data.success){
           alert("Please Login again");

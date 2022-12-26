@@ -54,13 +54,13 @@ const Home = () => {
                   {myblogs[0]?.data.map((e) => {
         return (
           <Col sm={6} md={4} lg={3} className="my-2" > 
-       <Card className='card'>
-        <Card.Img variant="top" src={e.image} />
+       <Card className='card homeCard'>
+        <Card.Img className='img' variant="top" src={e.image} />
         <Card.Body>
           <Card.Text>
-          {e.title} <Link className='Link' to={{
+          <Link className='Link' to={{
             pathname : `blog/${e._id}`
-          }}> ....Read More</Link>
+          }}>{e.title} </Link>
           </Card.Text>
         </Card.Body>
       </Card>  
