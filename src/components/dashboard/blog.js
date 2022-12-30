@@ -4,6 +4,8 @@ import {Container,Card,Button,Row,Col, Nav} from 'react-bootstrap';
 import '../../App.css'
 import { useParams } from 'react-router-dom';
 import axios from 'axios'
+import { getBlog } from '../../data/data';
+
 
 const Blog = () => {
 const {id} = useParams();
@@ -13,31 +15,23 @@ const [image,setImage] = useState();
 const [mainContent,setMainContent] = useState();
 const [category,setCategory] = useState([]);
 
-
-const headers = {
-  "Content-Type": "application/json",
-};
-
 useEffect(() => {
-  GetBlogs();
+  async function fetchData() {
+    const data = await getBlog(id);
+    setTitle(data.data[0].title);
+    setImage(data.data[0].image);
+    setMainContent(data.data[0].mainContent);
+    setCategory(data.data[0].category);
+  }
+  fetchData();
+
 }, []);
 
-const GetBlogs = () => {
-  axios
-    .get(`http://localhost:8000/notes/get/${id}`, {
-      headers,
-    })
-    .then((res) => {
-      setTitle(res.data.data[0].title);
-      setImage(res.data.data[0].image);
-      setMainContent(res.data.data[0].mainContent);
-      setCategory(res.data.data[0].category);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-  
+  if(title === null || title === undefined)
+  {
+    return <p>Loading...</p>;
+
+  }
   return (
     <div>
         <Navbar/>
