@@ -1,15 +1,13 @@
 import React ,{useState,useEffect} from 'react'
 import Navbar from '../Navbar/navbar'
-import {Container,Card,Button,Row,Col, Nav} from 'react-bootstrap';
+import {Container,Row,Col} from 'react-bootstrap';
 import '../../App.css'
 import { useParams } from 'react-router-dom';
-import axios from 'axios'
 import { getBlog } from '../../data/data';
 
 
 const Blog = () => {
 const {id} = useParams();
-const [myblogs,setmyBlogs] = useState([]);
 const [title,setTitle]  = useState();
 const [image,setImage] = useState();
 const [mainContent,setMainContent] = useState();

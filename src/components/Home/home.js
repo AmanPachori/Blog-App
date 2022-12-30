@@ -1,29 +1,24 @@
-import React ,{useState,useEffect} from 'react'
-import Navbar from '../Navbar/navbar'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {Container,Button,Row,Col} from 'react-bootstrap';
-import Card from 'react-bootstrap/Card';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import { getAllBlog } from '../../data/data';
+import React, { useState, useEffect } from "react";
+import Navbar from "../Navbar/navbar";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Button, Row, Col } from "react-bootstrap";
+import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
+import { getAllBlog } from "../../data/data";
 
-import '../../App.css'
-
-
+import "../../App.css";
 
 const Home = () => {
-  const [myblogs,setmyBlogs] = useState(null);
-    useEffect(() => {
+  const [myblogs, setmyBlogs] = useState(null);
+  useEffect(() => {
     async function fetchData() {
       const data = await getAllBlog();
       setmyBlogs([data.data.data]);
     }
     fetchData();
-
   }, []);
 
-  if(myblogs === null || myblogs ===undefined)
-  {
+  if (myblogs === null || myblogs === undefined) {
     return <p>Loading...</p>;
   }
   return (
@@ -76,6 +71,6 @@ const Home = () => {
       </Container>
     </div>
   );
-}
+};
 
-export default Home
+export default Home;
