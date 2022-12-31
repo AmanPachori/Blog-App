@@ -16,36 +16,48 @@ const navbar = () => {
    window.location = '/';
   }
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      bg="dark"
+      variant="dark"
+      className="mb-2"
+    >
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="/" className="title">
+          Blog
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-          <Nav.Link style={{color:'#fff'}} href="/">Home</Nav.Link>
-            <Nav.Link style={{color:'#fff'}} href="/dashboard">Dashboard</Nav.Link>
-            {(token )?<Nav.Link style={{color:'#fff'}} href="/Signin">Signin</Nav.Link>
-: <Button variant="outline-light" style={{color:'#fff'}} href="/Signin" onClick={()=>{
-  logOut();
-}} className="bg-transparent border-0">Logout</Button>}
+          <Nav className="me-auto navbarLink">
+            <Nav.Link style={{ color: "#fff" }} href="/">
+              Home
+            </Nav.Link>
+            <Nav.Link style={{ color: "#fff" }} href="/dashboard">
+              Dashboard
+            </Nav.Link>
+            {!token ? (
+              <Nav.Link style={{ color: "#fff" }} href="/Signin">
+                Signin
+              </Nav.Link>
+            ) : (
+              <Button
+                variant="outline-light"
+                style={{ color: "#fff" }}
+                href="/Signin"
+                onClick={() => {
+                  logOut();
+                }}
+                className="bg-transparent border-0"
+              >
+                Logout
+              </Button>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
-    </Navbar>)
-{/* <Navbar >
-      <Container className="border px-5 py-2 d-flex justify-content-between" >
-        <div>
-         <Navbar.Brand  style={{color:'#fff'}} href="/">Blog App </Navbar.Brand>
-        </div>
-        <div><Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            
-          </Nav>
-        </Navbar.Collapse></div>
-      </Container>
-    </Navbar>  ) */}
-  
+    </Navbar>
+  );
 }
 
 export default navbar

@@ -14,6 +14,7 @@ const Home = () => {
     async function fetchData() {
       const data = await getAllBlog();
       setmyBlogs([data.data.data]);
+      console.log(myblogs[0])
     }
     fetchData();
   }, []);
@@ -46,18 +47,30 @@ const Home = () => {
             <Row>
               {myblogs[0]?.map((e) => {
                 return (
-                  <Col sm={6} md={4} lg={3} className="my-2">
+                  <Col sm={12} md={6} lg={4} className="my-2">
                     <Card className="card homeCard">
                       <Card.Img className="img" variant="top" src={e.image} />
                       <Card.Body>
                         <Card.Text>
+                          <div className="d-flex mb-3 userInfo align-items-center justify-content-between">
+                            <div className="author d-flex align-items-center justify-content-between">
+                              <img
+                                className="rounded-50"
+                                src="https://blogbackend.pythonanywhere.com/media/profile/770073_man_512x512.png"
+                              />
+                              <h6 className="px-2 mt-2"> Username</h6>
+                            </div>
+                            <div className="dateAndTime d-flex align-items-center justify-content-between">
+                              <img src="https://img.icons8.com/color/24/null/calendar--v1.png" />
+                              <h6 className="px-2 mt-2">{e.createdOn.toLocaleString(undefined, {timeZone: 'Asia/Kolkata'})}</h6>                            </div>
+                          </div>
                           <Link
                             className="Link"
                             to={{
                               pathname: `blog/${e._id}`,
                             }}
                           >
-                            {e.title}{" "}
+                            {e.title}
                           </Link>
                         </Card.Text>
                       </Card.Body>

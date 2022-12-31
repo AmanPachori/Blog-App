@@ -11,6 +11,7 @@ export const getAllBlog = async () => {
       headers,
     })
     .then((res) => {
+      console.log(res.data)
       return res;
     })
     .catch((err) => {
