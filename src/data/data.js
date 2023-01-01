@@ -11,7 +11,6 @@ export const getAllBlog = async () => {
       headers,
     })
     .then((res) => {
-      console.log(res.data)
       return res;
     })
     .catch((err) => {
@@ -34,4 +33,19 @@ export const getBlog = async (id) => {
   });
   return data;
 
+}
+
+export const getUser = async (id) => {
+  const data = await axios
+  .get(`http://localhost:8000/user/get/${id}`, {
+    headers,
+  })
+  .then((res) => {
+    return res.data;
+
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+  return data;
 }
