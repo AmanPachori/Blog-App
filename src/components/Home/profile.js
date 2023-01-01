@@ -6,28 +6,39 @@ import '../../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { getUser } from '../../data/data';
+
 
 
 const Profile = () => {
   const {id} = useParams();
-  const [username,setusername] = useState();
+  const [username,setusername] = useState(null);
   const [address,setaddress] = useState();
   const [email,setemail] = useState();
 
-  const headers = {
-    "Content-Type": "application/json",
-  };
-  const url = `http://localhost:8000/user/get/${id}`
   useEffect(() => {
-    axios.get(url,{
-      headers
-    })
-    .then((res)=>{
-      setusername(res.data.data[0].username);
-      setaddress(res.data.data[0].address);
-      setemail(res.data.data[0].email);
-    })
+    async function fetchData() {
+      const data = await getUser(id);
+      console.log(data);
+      setusername(data.data[0].username);
+      setaddress(data.data[0].address);
+      setemail(data.data[0].email);
+    }
+    fetchData();
   }, [])
+
+  if(username === null || username === undefined)
+  {
+    return(
+      <>
+      <div id="loader">
+        <div id="shadow"></div>
+        <div id="box"></div>
+      </div>
+    </>
+    )
+
+  }
   
   return (
     <div>

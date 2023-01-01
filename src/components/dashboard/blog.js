@@ -8,7 +8,7 @@ import { getBlog } from '../../data/data';
 
 const Blog = () => {
 const {id} = useParams();
-const [title,setTitle]  = useState();
+const [title,setTitle]  = useState(null);
 const [image,setImage] = useState();
 const [mainContent,setMainContent] = useState();
 const [category,setCategory] = useState([]);
@@ -27,7 +27,14 @@ useEffect(() => {
 
   if(title === null || title === undefined)
   {
-    return <p>Loading...</p>;
+    return(
+      <>
+      <div id="loader">
+        <div id="shadow"></div>
+        <div id="box"></div>
+      </div>
+    </>
+    )
 
   }
   return (
@@ -46,18 +53,7 @@ useEffect(() => {
             </p>
             </div>
             </Col>
-            {/* <Col className="border text-start stats rounded m-2 p-2">
-               <h4 class="fst-italic p-2">Stats</h4>
-               <div class="m-2">
-                  <h5 className="fst-italic">Total Blogs  - <span className="fst-italic fw-light fs-6">600</span></h5>
-               </div>
-               <div class="m-2">
-                  <h5 className="fst-italic">Total Likes  - <span className="fst-italic fw-light fs-6">600</span></h5>
-               </div>
-               <div class="m-2">
-                  <h5 className="fst-italic">Total Comments  - <span className="fst-italic fw-light fs-6">600</span></h5>
-               </div>
-            </Col> */}
+            
           </Row>
         </Container>
     </div>

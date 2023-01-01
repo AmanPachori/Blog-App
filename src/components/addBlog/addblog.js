@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from '../Navbar/navbar'
 import {Container,Button,Row,Col} from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import '../../App.css';
 import axios from 'axios';
+import { getUser } from '../../data/data';
 const url = 'http://localhost:8000/notes/add';
 const token = localStorage.getItem('jwt');
 const config = {
@@ -12,16 +13,27 @@ const config = {
     'Authorization': 'Bearer ' +token
   }
 }
+const userId  = localStorage.getItem("id");
 
 const Addblog = () => {
   const [title, setTitle] = useState("");
   const [mainContent, setMainContent] = useState("");
   const [image,setimage] = useState("");
+  const [username,setUsername] = useState(null);
   const [file,setfile] = useState(null);
   const [category, setCategory] = useState([]);
   const [categoryValues, setCategoryValues] = useState("");
   
-  function encodeImageFileAsURL(element) {
+  useEffect(()=>{
+    async function fetchData() {
+      const data = await getUser(userId);
+      console.log(data);
+      setUsername(data.data[0].username);
+    }
+    fetchData();
+  })
+  
+    function encodeImageFileAsURL(element) {
     console.log(element);
     var file = element;
     var reader = new FileReader();
@@ -31,7 +43,6 @@ const Addblog = () => {
     reader.readAsDataURL(file);
     return reader.result;
   }
-  const userId  = localStorage.getItem("id");
   const submit = (e) =>{
     e.preventDefault();
     console.log(userId);
@@ -45,6 +56,7 @@ const Addblog = () => {
         mainContent,
         image,
         userId,
+        username,
         category
       },config)
       .then((res) => {
@@ -85,6 +97,18 @@ const Addblog = () => {
     </div>) 
      
    })
+   if(username === null || username === undefined)
+  {
+    return(
+      <>
+      <div id="loader">
+        <div id="shadow"></div>
+        <div id="box"></div>
+      </div>
+    </>
+    )
+
+  }
 
   return (
     <div>

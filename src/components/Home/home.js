@@ -20,12 +20,20 @@ const Home = () => {
   }, []);
 
   if (myblogs === null || myblogs === undefined) {
-    return <p>Loading...</p>;
+    return (
+      <>
+        <div id="loader">
+          <div id="shadow"></div>
+          <div id="box"></div>
+        </div>
+       
+      </>
+    );
   }
   return (
     <div>
       <Navbar />
-      <Container className="Home p-2">
+      <Container className="Home p-2 ">
         <div className="filters m-2">
           <Container className="border rounded p-2 d-flex justify-content-center">
             <Button variant="outline-light" className="mx-2 button">
@@ -42,9 +50,9 @@ const Home = () => {
             </Button>
           </Container>
         </div>
-        <div className="blogs m-2">
+        <div className="blogs m-2 ">
           <Container className="">
-            <Row>
+            <Row className=''>
               {myblogs[0]?.map((e) => {
                 return (
                   <Col sm={12} md={6} lg={4} className="my-2">
@@ -55,10 +63,10 @@ const Home = () => {
                           <div className="d-flex mb-3 userInfo align-items-center justify-content-between">
                             <div className="author d-flex align-items-center justify-content-between">
                               <img
-                                className="rounded-50"
+                                className=""
                                 src="https://blogbackend.pythonanywhere.com/media/profile/770073_man_512x512.png"
                               />
-                              <h6 className="px-2 mt-2"> Username</h6>
+                              <h6 className="px-2 mt-2">Username</h6>
                             </div>
                             <div className="dateAndTime d-flex align-items-center justify-content-between">
                               <img src="https://img.icons8.com/color/24/null/calendar--v1.png" />
