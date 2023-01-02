@@ -2,7 +2,7 @@ import { useState ,useEffect } from "react";
 import React from 'react'
 import Navbar from '../Navbar/navbar'
 import Modal from 'react-bootstrap/Modal';
-
+import { Link } from "react-router-dom";
 import {Container,Card,Button,Row,Col, Nav} from 'react-bootstrap';
 import '../../App.css'
 import axios from 'axios';
@@ -18,7 +18,7 @@ const Dashboard = () => {
     getUserData();
    },[]);
 
-  const [myblogs,setmyBlogs] = useState([]);
+  const [myblogs,setmyBlogs] = useState(null);
   const [mydata,setmyData] = useState([]);
   const [show, setShow] = useState(false);
   const [username, setUsername] = useState();
@@ -35,7 +35,6 @@ const Dashboard = () => {
   const[noteid,setnoteid] = useState();
   
   function encodeImageFileAsURL(element) {
-    console.log(element);
     var file = element;
     var reader = new FileReader();
     reader.onloadend = function () {
@@ -65,7 +64,6 @@ const Dashboard = () => {
     })
   };
   const handleClose1 = () => {
-    console.log(noteid);
     setShow1(false);
     axios.put(`http://localhost:8000/notes/update/${noteid}`,{
       title:title1,
@@ -122,6 +120,18 @@ const Dashboard = () => {
       });
 
   }
+  if (myblogs === null || myblogs === undefined) {
+    return (
+      <>
+        <div id="loader">
+          <div id="shadow"></div>
+          <div id="box"></div>
+        </div>
+       
+      </>
+    );
+  }
+
    
   if(userId)
   {
@@ -131,20 +141,40 @@ const Dashboard = () => {
           <Modal.Header className="bg-dark" closeButton>
             <Modal.Title>Update Your Blog </Modal.Title>
           </Modal.Header>
-          <Modal.Body className="bg-dark w-100" >
-            <h6 className='m-2'>Enter title</h6>
+          <Modal.Body className="bg-dark w-100">
+            <h6 className="m-2">Enter title</h6>
             <input
               type="text"
               value={title1}
-              onChange={(e)=>{setTitle1(e.target.value)}}
+              onChange={(e) => {
+                setTitle1(e.target.value);
+              }}
               placeholder="username"
               className="form-control "
             />
-            <h6 className='m-2'>Enter Address</h6>
+            <h6 className="m-2">Enter Address</h6>
 
-            <textarea type="text" className="textarea form-control" value={mainContent} onChange={(e)=>{setMainContent(e.target.value)}} placeholder="Enter text here" aria-label="addTitle" aria-describedby="basic-addon1"/>
+            <textarea
+              type="text"
+              className="textarea form-control"
+              value={mainContent}
+              onChange={(e) => {
+                setMainContent(e.target.value);
+              }}
+              placeholder="Enter text here"
+              aria-label="addTitle"
+              aria-describedby="basic-addon1"
+            />
             <h6 className="m-2"> Upload Image</h6>
-            <input class="form-control" type="file" value={file} id="formFile" onChange={(e)=>{encodeImageFileAsURL(e.target.files[0])}}/>
+            <input
+              class="form-control"
+              type="file"
+              value={file}
+              id="formFile"
+              onChange={(e) => {
+                encodeImageFileAsURL(e.target.files[0]);
+              }}
+            />
           </Modal.Body>
           <Modal.Footer className="bg-dark">
             <Button variant="primary" onClick={handleClose1}>
@@ -157,106 +187,121 @@ const Dashboard = () => {
             <Modal.Title>Complete your profile!</Modal.Title>
           </Modal.Header>
           <Modal.Body className="w-100">
-            <h6 className='m-2'>Enter Username</h6>
+            <h6 className="m-2">Enter Username</h6>
             <input
               type="text"
               value={username1}
-              onChange={(e)=>{setUsername1(e.target.value)}}
+              onChange={(e) => {
+                setUsername1(e.target.value);
+              }}
               placeholder="username"
               className="form-control m-2"
             />
-            <h6 className='m-2'>Enter Address</h6>
+            <h6 className="m-2">Enter Address</h6>
 
             <input
               type="text"
               value={address1}
-              onChange={(e)=>{setAddress1(e.target.value)}}
+              onChange={(e) => {
+                setAddress1(e.target.value);
+              }}
               placeholder="Address"
               className="form-control m-2"
             />
-
           </Modal.Body>
           <Modal.Footer>
             <Button variant="primary" onClick={handleClose}>
-              Update Profile
+              Update Blog!!!
             </Button>
           </Modal.Footer>
         </Modal>
         <Navbar />
         <Container className="p-2">
-          <h4 style={{ color: "#fff" }} className="text-start">
-            Dashboard
-          </h4>
-
           <Row>
             <Col className="border rounded col-lg-9 col-sm-7 m-2 p-2">
               <Container>
                 <Row className="mx-auto d-flex justify-content-center">
-                  {
-                    myblogs[0]?.data.map((e) => {
-                       return (
-                         <Col className="blog border-bottom  w-100 col-lg-5 m-2 col-sm-12 text-start">
-                           <div className="p-2 d-flex flex-column align-items-center justify-content-center">
-                             <div className="header d-flex justify-content-between">
-                               <h6 className="fs-3 fw-bolder fst-italic">
-                                 {" "}
-                                 {e.title}
-                               </h6>
-                               <button
-                                 className="my-auto"
-                                 onClick={() => {
+                  {myblogs[0]?.data.map((e) => {
+                return (
+                  <Col sm={12} md={12} lg={4} className="my-2">
+                    <Card className="card homeCard">
+                      <Card.Img className="img" variant="top" src={e.image} />
+                      <Card.Body>
+                        <Card.Text>
+                          <div className="d-flex mb-3 userInfo align-items-center justify-content-between">
+                            <div className="dateAndTime d-flex align-items-center justify-content-between">
+                              <img src="https://img.icons8.com/color/24/null/calendar--v1.png" />
+                              <h6 className="px-2 mt-2">
+                                {e.createdOn.toLocaleString(undefined, {
+                                  timeZone: "Asia/Kolkata",
+                                })}
+                              </h6>
+                              <button
+                                className="my-auto border-0 bg-transparent"
+                                onClick={() => {
                                   handleShow1(e._id);
                                 }}
-                               >
-                                 <img src="https://img.icons8.com/ios-glyphs/25/FFFFFF/edit--v1.png" />
-                               </button>
-                             </div>
-
-                             <img className="blogImage pt-5 img-fluid " src={e.image} />
-                             <p className="p-2">{e.mainContent}</p>
-                           </div>
-                         </Col>
-                       ); })
-                  }
-                  
+                              >
+                                <img src="https://img.icons8.com/ios-glyphs/25/FFFFFF/edit--v1.png" />
+                              </button>
+                            </div>
+                          </div>
+                          <Link
+                            className="Link"
+                            to={{
+                              pathname: `blog/${e._id}`,
+                            }}
+                          >
+                            {e.title}
+                          </Link>
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                );
+              })}
                 </Row>
               </Container>
             </Col>
             <Col className="text-start ">
               <div className="profile p-2 border rounded m-2">
-                <div className="d-flex justify-content-between">
-                  <h4 className="my-auto fst-italic p-2"> Profile</h4>
-                  <button className="my-auto" onClick={handleShow}>
+                <div className="d-flex justify-content-between">                  <button className="my-auto" onClick={handleShow}>
                     <img src="https://img.icons8.com/ios-glyphs/25/FFFFFF/edit--v1.png" />
                   </button>
                 </div>
                 {mydata[0]?.data.map((e) => {
-        return (
-          <div className="text-center">
-            <div className="image">
-            <img src="https://xsgames.co/randomusers/assets/images/favicon.png"></img>
-            </div>
-            <div class="m-2">
-              <h5 className="fst-italic">
-                Name -{" "}
-                <span className="fst-italic fw-light fs-6">{e.username}</span>
-              </h5>
-            </div>
-            <div class="m-2">
-              <h5 className="fst-italic">
-                Email -{" "}
-                <span className="fst-italic fw-light fs-6">{e.email}</span>
-              </h5>
-            </div>
-            <div class="m-2">
-              <h5 className="fst-italic">
-                Address -{" "}
-                <span className="fst-italic fw-light fs-6">{e.address}</span>
-              </h5>
-            </div>
-          </div>
-        );
-      })}
+                  return (
+                    <div className="text-center">
+                      <div className="image">
+                        <img src="https://xsgames.co/randomusers/assets/images/favicon.png"></img>
+                      </div>
+                      <div class="m-2">
+                        <h5 className="fst-italic">
+                          Name -{" "}
+                          <span className="fst-italic fw-light fs-6">
+                            {e.username}
+                          </span>
+                        </h5>
+                      </div>
+                      <div class="m-2">
+                        <h5 className="fst-italic">
+                          Email -{" "}
+                          <span className="fst-italic fw-light fs-6">
+                            {e.email}
+                          </span>
+                        </h5>
+                      </div>
+                      <div class="m-2">
+                        <h5 className="fst-italic">
+                          Address -{" "}
+                          <span className="fst-italic fw-light fs-6">
+                            {e.address}
+                          </span>
+                        </h5>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
               {/* <div className="stats border rounded m-2 p-2">
                 <h4 class="fst-italic p-2">Stats</h4>

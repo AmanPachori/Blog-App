@@ -61,13 +61,13 @@ const Home = () => {
                       <Card.Body>
                         <Card.Text>
                           <div className="d-flex mb-3 userInfo align-items-center justify-content-between">
-                            <div className="author d-flex align-items-center justify-content-between">
+                            {/* <div className="author d-flex align-items-center justify-content-between">
                               <img
                                 className=""
                                 src="https://blogbackend.pythonanywhere.com/media/profile/770073_man_512x512.png"
                               />
                               <h6 className="px-2 mt-2">Username</h6>
-                            </div>
+                            </div> */}
                             <div className="dateAndTime d-flex align-items-center justify-content-between">
                               <img src="https://img.icons8.com/color/24/null/calendar--v1.png" />
                               <h6 className="px-2 mt-2">{e.createdOn.toLocaleString(undefined, {timeZone: 'Asia/Kolkata'})}</h6>                            </div>

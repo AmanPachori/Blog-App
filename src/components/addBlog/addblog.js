@@ -19,30 +19,20 @@ const Addblog = () => {
   const [title, setTitle] = useState("");
   const [mainContent, setMainContent] = useState("");
   const [image,setimage] = useState("");
-  const [username,setUsername] = useState(null);
   const [file,setfile] = useState(null);
   const [category, setCategory] = useState([]);
   const [categoryValues, setCategoryValues] = useState("");
   
-  useEffect(()=>{
-    async function fetchData() {
-      const data = await getUser(userId);
-      console.log(data);
-      setUsername(data.data[0].username);
-    }
-    fetchData();
-  })
-  
     function encodeImageFileAsURL(element) {
-    console.log(element);
-    var file = element;
-    var reader = new FileReader();
-    reader.onloadend = function () {
-       setimage(reader.result);
-    };
-    reader.readAsDataURL(file);
-    return reader.result;
-  }
+      console.log(element);
+      var file = element;
+      var reader = new FileReader();
+      reader.onloadend = function () {
+        setimage(reader.result);
+      };
+      reader.readAsDataURL(file);
+      return reader.result;
+    }
   const submit = (e) =>{
     e.preventDefault();
     console.log(userId);
@@ -56,7 +46,6 @@ const Addblog = () => {
         mainContent,
         image,
         userId,
-        username,
         category
       },config)
       .then((res) => {
@@ -75,15 +64,14 @@ const Addblog = () => {
   } 
 
    const [show, setShow] = useState(false);
-   const handleClose = () =>{
-    const array = category;
-    array.push(categoryValues);
-    const newarray = Array.from(new Set(array));
-    setCategory(newarray);
-    console.log(category);
-    setCategoryValues("");
-    setShow(false);
-   }
+   const handleClose = () => {
+     const array = category;
+     array.push(categoryValues);
+     const newarray = Array.from(new Set(array));
+     setCategory(newarray);
+     setCategoryValues("");
+     setShow(false);
+   };
    const handleShow = () => setShow(true);
    
    const removeCategory = (ele) =>{
@@ -92,24 +80,21 @@ const Addblog = () => {
     })
     setCategory(array);
    }
-   const Categories = category.map((e)=>{
-    return (<div className="m-2 category shadow-lg p-2 mb-5 bg-body rounded float-start" >{e} <button className="m-auto" onClick={()=>{removeCategory(e)}} ><img src="https://img.icons8.com/tiny-glyph/16/000000/delete-sign.png"/></button>
-    </div>) 
-     
-   })
-   if(username === null || username === undefined)
-  {
-    return(
-      <>
-      <div id="loader">
-        <div id="shadow"></div>
-        <div id="box"></div>
-      </div>
-    </>
-    )
-
-  }
-
+   const Categories = category.map((e) => {
+     return (
+       <div className="m-2 category shadow-lg p-2 mb-5 bg-body rounded float-start">
+         {e}{" "}
+         <button
+           className="m-auto"
+           onClick={() => {
+             removeCategory(e);
+           }}
+         >
+           <i class="bi bi-x-circle-fill"></i>
+         </button>
+       </div>
+     );
+   });
   return (
     <div>
       <Modal show={show} onHide={handleClose}>
