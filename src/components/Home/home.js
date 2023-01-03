@@ -14,7 +14,6 @@ const Home = () => {
     async function fetchData() {
       const data = await getAllBlog();
       setmyBlogs([data.data.data]);
-      console.log(myblogs[0])
     }
     fetchData();
   }, []);

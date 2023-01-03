@@ -44,8 +44,6 @@ border-radius: 5px;
 /* -------------------------------Dashboard Css Starts ------------------------*/
 .heading{
   text-align:center;
-  border-bottom: 2px solid transparent;
-  border-image: linear-gradient(0.25turn, rgba(56,2,155,0), rgba(255,255,255), rgba(56,2,155,0));
   border-image-slice: 1;
   width:100%;
   color:var(--themelight)
@@ -55,13 +53,11 @@ border-radius: 5px;
   border : none
 }
 .blog{
-  width: 370px;
   color:var(--themelight);
   text-align:center;
-  border-bottom: 2px solid transparent;
-  border-image: linear-gradient(0.25turn, rgba(56,2,155,0), rgba(255,255,255), rgba(56,2,155,0));
-  border-image-slice: 1;
-  width:100%;
+  background-color: var(--backgroundColor);
+  font-family: 'Lora', serif;
+
 }
 .blog Card{
   height: 300px;
@@ -79,7 +75,7 @@ border-radius: 5px;
   border: none;
 }
 .blog img{
-  width: 100%;
+  width: 40%;
 }
 
 .blogImage{
@@ -97,7 +93,9 @@ border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.104);
 }
 
-.Home{
+.Home,
+.dashboardBlogs,
+.profile{
   background-color: var(--backgroundColor);
 }
 .card{
@@ -174,11 +172,7 @@ height: 16vh;
   background-color: var(--backgroundColor);
   color: var(--themelight);
 }
-@media screen and (max-width: 700px){
-  .user{
-    max-width: 56vw !important;
-  }
-}
+
 .personalDetails img
 {
  width: 160px;
@@ -194,7 +188,30 @@ height: 16vh;
 }
 .blog{
   max-width: 65vw;
-
+}
+.blog p{
+  font-size: 20px;
+}
+@media screen and (max-width: 1247px) {
+  .blog {
+    max-width: 90vw;
+  }
+  .blog p{
+    font-size: 16px;
+  }
+  .blogImage{
+    width: 60%;
+  }
+  .user{
+    max-width: 56vw !important;
+  }
+  .userInfo{
+    width: 100% !important;
+  }
+  .userInfo h6{
+    font-size:12px ;
+    width: fit-content;
+  }
 }
 
 /* -------------------------------User Profile Ends---------------------------*/
@@ -258,5 +275,17 @@ h4 {
   opacity: .5;
   font-family: sans-serif;
   color: #fff;
+}
+
+.userInfo img{
+  width: 24px;
+  height: 24px;
+}
+
+.userInfo{
+  width: 50%;
+}
+.Category div{
+  width: fit-content;
 }
 /*-------------------------------- Loader Ends -----------------------------*/

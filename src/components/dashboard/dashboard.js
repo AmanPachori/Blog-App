@@ -216,11 +216,11 @@ const Dashboard = () => {
           </Modal.Footer>
         </Modal>
         <Navbar />
-        <Container className="p-2">
-          <Row>
-            <Col className="border rounded col-lg-9 col-sm-7 m-2 p-2">
+        <Container fluid className="d-flex">
+          <Row className=" p-5 w-100">
+            <Col sm={12} md={7} lg={8} className=" p-3 dashboardBlogs">
               <Container>
-                <Row className="mx-auto d-flex justify-content-center">
+                <Row className="mx-auto d-flex justify-content-start">
                   {myblogs[0]?.data.map((e) => {
                 return (
                   <Col sm={12} md={12} lg={4} className="my-2">
@@ -263,8 +263,8 @@ const Dashboard = () => {
                 </Row>
               </Container>
             </Col>
-            <Col className="text-start ">
-              <div className="profile p-2 border rounded m-2">
+            <Col sm={12} md={4} lg={3} className="text-start profile mx-2 p-3">
+              <div className="">
                 <div className="d-flex justify-content-between">                  <button className="my-auto" onClick={handleShow}>
                     <img src="https://img.icons8.com/ios-glyphs/25/FFFFFF/edit--v1.png" />
                   </button>
