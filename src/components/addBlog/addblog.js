@@ -101,8 +101,15 @@ const Addblog = () => {
         <Modal.Header closeButton>
           <Modal.Title>Enter Category</Modal.Title>
         </Modal.Header>
-        <Modal.Body className='w-100'>
-          <input type="text" value={categoryValues} onChange={(e)=>{setCategoryValues(e.target.value)}} placeholder="Enter Category" className='form-control' />
+        <Modal.Body className="w-100">
+          {/* <input type="text" value={categoryValues} onChange={(e)=>{setCategoryValues(e.target.value)}} placeholder="Enter Category" className='form-control' /> */}
+          <select class="form-select" value={categoryValues} onChange={(e)=>{setCategoryValues(e.target.value)}} aria-label="Default select example">
+            <option selected>Select Category</option>
+            <option value="Technology">Technology</option>
+            <option value="Data Science">Data Science</option>
+            <option value="Productivity">Productivity</option>
+            <option value="Web development">Web development</option>
+          </select>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleClose}>
@@ -110,36 +117,75 @@ const Addblog = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-        <Navbar/>
-        <Container className="p-2 text-start">
-         
-        <h4 style={{color:'#fff'}}>Add Blog</h4>
+      <Navbar />
+      <Container className="p-2 text-start">
+        <h4 style={{ color: "#fff" }}>Add Blog</h4>
         <div className="border rounded addblog p-5">
-           <div className="my-2">
-              <h5 style={{color:'#fff'}}>Title</h5>
-              <input type="text" value={title} onChange={(e)=>setTitle(e.target.value)} className=" form-control" placeholder="Enter title" aria-label="addTitle" aria-describedby="basic-addon1"/>
-           </div>
-           <div className="my-2">
-              <h5 style={{color:'#fff'}}>Text</h5>
-              <textarea type="text" className="textarea form-control" value={mainContent} onChange={(e)=>{setMainContent(e.target.value)}} placeholder="Enter text here" aria-label="addTitle" aria-describedby="basic-addon1"/>
-           </div>
-           <div className="">
-              <label style={{color:'#fff'}} for="formFile" class=" my-1 form-label"><h5>Upload Image</h5></label>
-              <input class="form-control" type="file" value={file} id="formFile" onChange={(e)=>{encodeImageFileAsURL(e.target.files[0])}}/>
-           </div>
-           <div className="categories my-2">
-           {Categories}
-           </div>
-           <div className=""> 
-           <Button variant="outline-light" onClick={submit}  className="m-2 button float-end" >Publish</Button>
-           <Button variant="outline-light" onClick={handleShow} className="m-2 button float-end" >Add Category</Button>
-           </div>
-
-           
+          <div className="my-2">
+            <h5 style={{ color: "#fff" }}>Title</h5>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className=" form-control"
+              placeholder="Enter title"
+              aria-label="addTitle"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+          <div className="my-2">
+            <h5 style={{ color: "#fff" }}>Text</h5>
+            <textarea
+              type="text"
+              className="textarea form-control"
+              value={mainContent}
+              onChange={(e) => {
+                setMainContent(e.target.value);
+              }}
+              placeholder="Enter text here"
+              aria-label="addTitle"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+          <div className="">
+            <label
+              style={{ color: "#fff" }}
+              for="formFile"
+              class=" my-1 form-label"
+            >
+              <h5>Upload Image</h5>
+            </label>
+            <input
+              class="form-control"
+              type="file"
+              value={file}
+              id="formFile"
+              onChange={(e) => {
+                encodeImageFileAsURL(e.target.files[0]);
+              }}
+            />
+          </div>
+          <div className="categories my-2">{Categories}</div>
+          <div className="">
+            <Button
+              variant="outline-light"
+              onClick={submit}
+              className="m-2 button float-end"
+            >
+              Publish
+            </Button>
+            <Button
+              variant="outline-light"
+              onClick={handleShow}
+              className="m-2 button float-end"
+            >
+              Add Category
+            </Button>
+          </div>
         </div>
-        </Container>
+      </Container>
     </div>
-  )
+  );
 }
 
 export default Addblog
