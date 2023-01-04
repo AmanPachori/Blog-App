@@ -39,13 +39,16 @@ const Home = () => {
               All
             </Button>
             <Button variant="outline-light" className="mx-2 button">
-              Tech
+              Technology
             </Button>
             <Button variant="outline-light" className="mx-2 button">
-              Non Tech
+              Data Science
             </Button>
             <Button variant="outline-light" className="mx-2 button">
-              lipdum
+              Productivity
+            </Button>
+            <Button variant="outline-light" className="mx-2 button">
+              Web development
             </Button>
           </Container>
         </div>

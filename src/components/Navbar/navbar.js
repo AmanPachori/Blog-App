@@ -9,9 +9,9 @@ import { Link } from 'react-router-dom';
 
 
 const navbar = () => {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem('jwt');
   const logOut = () =>{
-   localStorage.removeItem('token');
+   localStorage.removeItem('jwt');
    localStorage.removeItem('id');
    window.location = '/';
   }
@@ -41,7 +41,8 @@ const navbar = () => {
                 Signin
               </Nav.Link>
             ) : (
-              <Button
+              <Nav.Link style={{ color: "#fff" }}>
+                <Button
                 variant="outline-light"
                 style={{ color: "#fff" }}
                 href="/Signin"
@@ -52,6 +53,7 @@ const navbar = () => {
               >
                 Logout
               </Button>
+              </Nav.Link> 
             )}
           </Nav>
         </Navbar.Collapse>
