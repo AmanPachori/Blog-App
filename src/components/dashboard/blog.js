@@ -32,7 +32,6 @@ const Blog = () => {
       setImage(data.data[0].image);
       setMainContent(data.data[0].mainContent);
       setCategory(data.data[0].category);
-      console.log(data.data[0].category)
       setTime(data.data[0].createdOn);
     }
     fetchData();

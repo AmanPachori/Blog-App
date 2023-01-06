@@ -212,6 +212,12 @@ height: 16vh;
     font-size:12px ;
     width: fit-content;
   }
+  .homeNavbar Button{
+   font-size: 10px !important;
+   font-weight: 600;
+   margin-left: 2px !important;
+   margin-right: 2px !important;
+  }
 }
 
 /* -------------------------------User Profile Ends---------------------------*/
