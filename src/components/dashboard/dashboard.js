@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import {Container,Card,Button,Row,Col, Nav} from 'react-bootstrap';
 import '../../App.css'
 import axios from 'axios';
+import { getUserBlog } from "../../data/data";
 const url = '';
 
 
@@ -14,8 +15,13 @@ const url = '';
 const Dashboard = () => {
 
   useEffect(() => {
-    GetBlogs();
-    getUserData();
+    async function fetchData() {
+      const data = await getUserBlog();
+
+      setmyBlogs(data);
+      getUserData()
+    }
+    fetchData();
    },[]);
 
   const [myblogs,setmyBlogs] = useState(null);
@@ -47,17 +53,17 @@ const Dashboard = () => {
   const token = localStorage.getItem('jwt');
   const userId = localStorage.getItem('id');
   const config = {
-    headers:{
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' +token
-    }
-  }
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    },
+  };
   const handleClose = () => {
     setShow(false);
     axios.put(`http://localhost:8000/user/update/${userId}`,{
       username : username1,
       address:address1,
-    })
+    },config)
     .then(()=>{
       getUserData();
        alert(`Successfully updated`);
@@ -69,8 +75,9 @@ const Dashboard = () => {
       title:title1,
       mainContent:mainContent,
       image:image
-    })
-    .then(()=>{
+    },config)
+    .then((res)=>{
+      window.location.reload();
        alert(`Successfully updated`);
     })
   };
@@ -91,19 +98,6 @@ const Dashboard = () => {
   };
   
 
-  
-  
-  const GetBlogs = () =>{
-    axios
-      .get(`http://localhost:8000/notes/getuser/${userId}`,config )
-      .then((res) => {
-        let array = [res.data];
-        setmyBlogs(array);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
 
   const getUserData = ()=>{
     axios
@@ -263,7 +257,7 @@ const Dashboard = () => {
                 </Row>
               </Container>
             </Col>
-            <Col sm={12} md={4} lg={3} className="text-start profile mx-2 p-3">
+            <Col sm={11} md={4} lg={3} className="text-start profile mx-2 my-2 p-2">
               <div className="">
                 <div className="d-flex justify-content-between">                  <button className="my-auto" onClick={handleShow}>
                     <img src="https://img.icons8.com/ios-glyphs/25/FFFFFF/edit--v1.png" />
@@ -271,7 +265,7 @@ const Dashboard = () => {
                 </div>
                 {mydata[0]?.data.map((e) => {
                   return (
-                    <div className="text-center">
+                    <div className="text-center ">
                       <div className="image">
                         <img src="https://xsgames.co/randomusers/assets/images/favicon.png"></img>
                       </div>
