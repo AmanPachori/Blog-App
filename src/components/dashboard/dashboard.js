@@ -104,7 +104,6 @@ const Dashboard = () => {
       .get(`http://localhost:8000/user/get/${userId}`,config)
       .then((res) => {
         let array = [res.data];
-        console.log(array);
         setmyData(array);
         setUsername(res.data.data[0].username);
         setAddress(res.data.data[0].address);
@@ -130,7 +129,7 @@ const Dashboard = () => {
   if(userId)
   {
     return (
-      <div>
+      <div className=" dashboard">
         <Modal className="text-white" show={show1} onHide={handleClose2}>
           <Modal.Header className="bg-dark" closeButton>
             <Modal.Title>Update Your Blog </Modal.Title>
@@ -210,56 +209,73 @@ const Dashboard = () => {
           </Modal.Footer>
         </Modal>
         <Navbar />
+        <div className="px-5 py-2">
+          <h3>Dashboard</h3>
+        </div>
         <Container fluid className="d-flex">
-          <Row className=" p-5 w-100">
+          <Row className="p-5 py-2 w-100">
             <Col sm={12} md={7} lg={8} className=" p-3 dashboardBlogs">
               <Container>
+                <Button variant="outline-light" className="mx-2 button align-items-center" href='/add'>
+                   Add Blog
+                </Button>
                 <Row className="mx-auto d-flex justify-content-start">
                   {myblogs[0]?.data.map((e) => {
-                return (
-                  <Col sm={12} md={12} lg={4} className="my-2">
-                    <Card className="card homeCard">
-                      <Card.Img className="img" variant="top" src={e.image} />
-                      <Card.Body>
-                        <Card.Text>
-                          <div className="d-flex mb-3 userInfo align-items-center justify-content-between">
-                            <div className="dateAndTime d-flex align-items-center justify-content-between">
-                              <img src="https://img.icons8.com/color/24/null/calendar--v1.png" />
-                              <h6 className="px-2 mt-2">
-                                {e.createdOn.toLocaleString(undefined, {
-                                  timeZone: "Asia/Kolkata",
-                                })}
-                              </h6>
-                              <button
-                                className="my-auto border-0 bg-transparent"
-                                onClick={() => {
-                                  handleShow1(e._id);
+                    return (
+                      <Col sm={12} md={12} lg={4} className="my-2">
+                        <Card className="card homeCard">
+                          <Card.Img
+                            className="img"
+                            variant="top"
+                            src={e.image}
+                          />
+                          <Card.Body>
+                            <Card.Text>
+                              <div className="d-flex mb-3 userInfo align-items-center justify-content-between">
+                                <div className="dateAndTime d-flex align-items-center justify-content-between">
+                                  <img src="https://img.icons8.com/color/24/null/calendar--v1.png" />
+                                  <h6 className="px-2 mt-2">
+                                    {e.createdOn.toLocaleString(undefined, {
+                                      timeZone: "Asia/Kolkata",
+                                    })}
+                                  </h6>
+                                  <button
+                                    className="my-auto border-0 bg-transparent"
+                                    onClick={() => {
+                                      handleShow1(e._id);
+                                    }}
+                                  >
+                                    <img src="https://img.icons8.com/ios-glyphs/25/FFFFFF/edit--v1.png" />
+                                  </button>
+                                </div>
+                              </div>
+                              <Link
+                                className="Link"
+                                to={{
+                                  pathname: `blog/${e._id}`,
                                 }}
                               >
-                                <img src="https://img.icons8.com/ios-glyphs/25/FFFFFF/edit--v1.png" />
-                              </button>
-                            </div>
-                          </div>
-                          <Link
-                            className="Link"
-                            to={{
-                              pathname: `blog/${e._id}`,
-                            }}
-                          >
-                            {e.title}
-                          </Link>
-                        </Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                );
-              })}
+                                {e.title}
+                              </Link>
+                            </Card.Text>
+                          </Card.Body>
+                        </Card>
+                      </Col>
+                    );
+                  })}
                 </Row>
               </Container>
             </Col>
-            <Col sm={11} md={4} lg={3} className="text-start profile mx-2 my-2 p-2">
+            <Col
+              sm={11}
+              md={4}
+              lg={3}
+              className="text-start rounded profile mx-2 my-5 py-2"
+            >
               <div className="">
-                <div className="d-flex justify-content-between">                  <button className="my-auto" onClick={handleShow}>
+                <div className="d-flex justify-content-between">
+                  {" "}
+                  <button className="my-auto" onClick={handleShow}>
                     <img src="https://img.icons8.com/ios-glyphs/25/FFFFFF/edit--v1.png" />
                   </button>
                 </div>

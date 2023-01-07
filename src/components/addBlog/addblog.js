@@ -96,6 +96,18 @@ const Addblog = () => {
       </div>
     );
   });
+
+  if (userId === null) {
+    return (
+      <>
+        <div id="loader">
+          <div id="shadow"></div>
+          <div id="box"></div>
+        </div>
+       
+      </>
+    );
+  }
   return (
     <div>
       <Modal show={show} onHide={handleClose}>
@@ -127,7 +139,7 @@ const Addblog = () => {
       </Modal>
       <Navbar />
       <Container className="p-2 text-start">
-        <h4 style={{ color: "#fff" }}>Add Blog</h4>
+        <h5 style={{ color: "#fff" }}>Add Blog</h5>
         <div className="border rounded addblog p-5">
           <div className="my-2">
             <h5 style={{ color: "#fff" }}>Title</h5>
