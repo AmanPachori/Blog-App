@@ -30,9 +30,9 @@ const Home = () => {
     );
   }
   return (
-    <div>
+    <div className="Home">
       <Navbar />
-      <Container className="Home p-2 ">
+      <Container className=" p-2 ">
         <div className="filters m-2">
           <Container className="border homeNavbar rounded p-2 d-flex justify-content-center">
             <Button variant="outline-light" className="mx-2 button">

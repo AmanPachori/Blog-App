@@ -41,18 +41,11 @@ const navbar = () => {
                 Signin
               </Nav.Link>
             ) : (
-              <Nav.Link style={{ color: "#fff" }}>
-                <Button
-                variant="outline-light"
-                style={{ color: "#fff" }}
-                href="/Signin"
-                onClick={() => {
-                  logOut();
-                }}
-                className="bg-transparent border-0"
-              >
+              <Nav.Link style={{ color: "#fff" }} href="/" onClick={() => {
+                logOut();
+              }}>
                 Logout
-              </Button>
+
               </Nav.Link> 
             )}
           </Nav>
