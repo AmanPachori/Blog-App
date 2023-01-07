@@ -39,7 +39,17 @@ border-radius: 5px;
 .homeCard .img{
   height: 55%;
 }
-
+h3{
+  font-family: 'Lora',serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--themelight);
+}
+h5{
+  font-family: 'Lora',serif;
+  font-weight: 700;
+  color: var(--themelight);
+}
 
 /* -------------------------------Dashboard Css Starts ------------------------*/
 .heading{
@@ -69,6 +79,7 @@ border-radius: 5px;
 }
 .profile{
   height: 30vh;
+  background-color: var(--textBackground);
 }
 .profile button{
   background: none;
@@ -94,8 +105,7 @@ border-radius: 5px;
 }
 
 .Home,
-.dashboardBlogs,
-.profile{
+.dashboardBlogs{
   background-color: var(--backgroundColor);
 }
 .card{
@@ -148,6 +158,11 @@ border-radius: 5px;
 }
 .textarea{
   height: 30vh;
+}
+.dashboard,
+.Home{
+  background-color: var(--backgroundColor);
+  min-height: 100vh;
 }
 .categories{
 height: 16vh;
