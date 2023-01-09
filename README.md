@@ -36,7 +36,7 @@ A blog app is developed using NodeJS and ReactJS with many feature such as - Vie
 <img src="https://img.icons8.com/ios/58/FFFFFF/express-js.png"/>
 <img src="https://img.icons8.com/plasticine/65/000000/react.png"/>
 <img src="https://img.icons8.com/fluency/64/000000/node-js.png"/>
-
+<img src="https://img.icons8.com/color/64/000000/bootstrap.png"/>
 </div>
 
 <div align='center' >
