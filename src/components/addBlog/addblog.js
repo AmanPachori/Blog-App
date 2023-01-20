@@ -5,7 +5,7 @@ import Modal from "react-bootstrap/Modal";
 import "../../App.css";
 import axios from "axios";
 import { getUser } from "../../data/data";
-const url = "http://localhost:8000/notes/add";
+const url = "https://blog-app-backend-orpin.vercel.app/notes/add";
 const token = localStorage.getItem("jwt");
 const config = {
   headers: {
