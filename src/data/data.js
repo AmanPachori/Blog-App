@@ -14,7 +14,7 @@ const config = {
 };
 export const getAllBlog = async () => {
   const data = await axios
-    .get(`http://localhost:8000/notes/get`, {
+    .get(`https://blog-app-backend-orpin.vercel.app/notes/get`, {
       headers,
     })
     .then((res) => {
@@ -28,7 +28,7 @@ export const getAllBlog = async () => {
 
 export const getBlog = async (id) => {
   const data = await axios
-  .get(`http://localhost:8000/notes/get/${id}`, {
+  .get(`https://blog-app-backend-orpin.vercel.app/notes/get/${id}`, {
     headers,
   })
   .then((res) => {
@@ -44,7 +44,7 @@ export const getBlog = async (id) => {
 
 export const getUser = async (id) => {
   const data = await axios
-  .get(`http://localhost:8000/user/get/${id}`, {
+  .get(`https://blog-app-backend-orpin.vercel.app/user/get/${id}`, {
     headers,
   })
   .then((res) => {
@@ -58,7 +58,7 @@ export const getUser = async (id) => {
 }
 export const getUserBlog = async (id) => {
   const data = await  axios
-  .get(`http://localhost:8000/notes/getuser/${userId}`,config )
+  .get(`https://blog-app-backend-orpin.vercel.app/notes/getuser/${userId}`,config )
   .then((res) => {
     return [res.data];
   })
