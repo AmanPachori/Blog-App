@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import '../../App.css'
 import axios from 'axios';
 
-const url = "http://localhost:8000/user/signup"
+const url = "https://blog-app-backend-orpin.vercel.app/user/signup"
 
 
 const Signup = () => {
