@@ -60,7 +60,7 @@ const Dashboard = () => {
   };
   const handleClose = () => {
     setShow(false);
-    axios.put(`http://localhost:8000/user/update/${userId}`,{
+    axios.put(`https://blog-app-backend-orpin.vercel.app/user/update/${userId}`,{
       username : username1,
       address:address1,
     },config)
@@ -71,7 +71,7 @@ const Dashboard = () => {
   };
   const handleClose1 = () => {
     setShow1(false);
-    axios.put(`http://localhost:8000/notes/update/${noteid}`,{
+    axios.put(`https://blog-app-backend-orpin.vercel.app/notes/update/${noteid}`,{
       title:title1,
       mainContent:mainContent,
       image:image
@@ -101,7 +101,7 @@ const Dashboard = () => {
 
   const getUserData = ()=>{
     axios
-      .get(`http://localhost:8000/user/get/${userId}`,config)
+      .get(`https://blog-app-backend-orpin.vercel.app/user/get/${userId}`,config)
       .then((res) => {
         let array = [res.data];
         setmyData(array);
