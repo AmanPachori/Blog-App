@@ -232,21 +232,25 @@ const Dashboard = () => {
                           <Card.Body>
                             <Card.Text>
                               <div className="d-flex mb-3 userInfo align-items-center justify-content-between">
-                                <div className="dateAndTime d-flex align-items-center justify-content-between">
+                                <div className="dateAndTime d-flex align-items-center w-100 justify-content-between">
+                                  <div className="d-flex align-items-center">
                                   <img src="https://img.icons8.com/color/24/null/calendar--v1.png" />
-                                  <h6 className="px-2 mt-2">
+                                  <h6 className="px-2 fs-6 mt-2">
                                     {e.createdOn.toLocaleString(undefined, {
                                       timeZone: "Asia/Kolkata",
                                     })}
                                   </h6>
+                                  </div>
+                                  <div>
                                   <button
                                     className="my-auto border-0 bg-transparent"
                                     onClick={() => {
                                       handleShow1(e._id);
                                     }}
                                   >
-                                    <img src="https://img.icons8.com/ios-glyphs/25/FFFFFF/edit--v1.png" />
+                                    <img src="https://img.icons8.com/ios-glyphs/22/FFFFFF/edit--v1.png" />
                                   </button>
+                                  </div>
                                 </div>
                               </div>
                               <Link
