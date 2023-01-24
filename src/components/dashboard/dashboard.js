@@ -216,9 +216,11 @@ const Dashboard = () => {
           <Row className="p-5 py-2 w-100">
             <Col sm={12} md={7} lg={8} className=" p-3 dashboardBlogs">
               <Container>
-                <Button variant="outline-light" className="mx-2 button align-items-center" href='/add'>
+                <div className="mx-2 border">
+                <Button variant="outline-light" className="mx-4 button align-items-center" href='/add'>
                    Add Blog
                 </Button>
+                </div>
                 <Row className="mx-auto d-flex justify-content-start">
                   {myblogs[0]?.data.map((e) => {
                     return (
