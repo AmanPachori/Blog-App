@@ -11,19 +11,18 @@ const Blog = () => {
   const [image, setImage] = useState();
   const [mainContent, setMainContent] = useState();
   const [category, setCategory] = useState([]);
-  const [Time,setTime] = useState();
-  const [wortPerMin ,setWortPerMin] = useState();
-  const countTime = () =>{
+  const [Time, setTime] = useState();
+  const [wortPerMin, setWortPerMin] = useState();
+  const countTime = () => {
     const wordsPerMinute = 120;
-    if(mainContent)
-    {
+    if (mainContent) {
       let textLength = mainContent.split(" ").length; // Split by words
-      if(textLength > 0){
+      if (textLength > 0) {
         let value = Math.ceil(textLength / wordsPerMinute);
-          setWortPerMin(`~${value} min read`);
+        setWortPerMin(`~${value} min read`);
+      }
     }
-  }
-}
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -75,7 +74,9 @@ const Blog = () => {
                   {category?.map((e) => {
                     return (
                       <div>
-                        <p className="fs-6 mx-2 border p-2 rounded fw-bolder">{e}</p>
+                        <p className="fs-6 mx-2 border p-2 rounded fw-bolder">
+                          {e}
+                        </p>
                       </div>
                     );
                   })}

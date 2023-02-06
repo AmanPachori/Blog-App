@@ -25,7 +25,6 @@ const Home = () => {
           <div id="shadow"></div>
           <div id="box"></div>
         </div>
-       
       </>
     );
   }
@@ -54,7 +53,7 @@ const Home = () => {
         </div>
         <div className="blogs m-2 ">
           <Container className="">
-            <Row className=''>
+            <Row className="">
               {myblogs[0]?.map((e) => {
                 return (
                   <Col sm={12} md={6} lg={4} className="my-2">
@@ -72,7 +71,12 @@ const Home = () => {
                             </div> */}
                             <div className="dateAndTime d-flex align-items-center justify-content-between">
                               <img src="https://img.icons8.com/color/24/null/calendar--v1.png" />
-                              <h6 className="px-2 mt-2">{e.createdOn.toLocaleString(undefined, {timeZone: 'Asia/Kolkata'})}</h6>                            </div>
+                              <h6 className="px-2 mt-2">
+                                {e.createdOn.toLocaleString(undefined, {
+                                  timeZone: "Asia/Kolkata",
+                                })}
+                              </h6>{" "}
+                            </div>
                           </div>
                           <Link
                             className="Link"

@@ -1,35 +1,31 @@
-import { useState ,useEffect } from "react";
-import React from 'react'
-import Navbar from '../Navbar/navbar'
-import Modal from 'react-bootstrap/Modal';
+import { useState, useEffect } from "react";
+import React from "react";
+import Navbar from "../Navbar/navbar";
+import Modal from "react-bootstrap/Modal";
 import { Link } from "react-router-dom";
-import {Container,Card,Button,Row,Col, Nav} from 'react-bootstrap';
-import '../../App.css'
-import axios from 'axios';
+import { Container, Card, Button, Row, Col, Nav } from "react-bootstrap";
+import "../../App.css";
+import axios from "axios";
 import { getUserBlog } from "../../data/data";
-const url = '';
-
-
-
+const url = "";
 
 const Dashboard = () => {
-
   useEffect(() => {
     async function fetchData() {
       const data = await getUserBlog();
 
       setmyBlogs(data);
-      getUserData()
+      getUserData();
     }
     fetchData();
-   },[]);
+  }, []);
 
-  const [myblogs,setmyBlogs] = useState(null);
-  const [mydata,setmyData] = useState([]);
+  const [myblogs, setmyBlogs] = useState(null);
+  const [mydata, setmyData] = useState([]);
   const [show, setShow] = useState(false);
   const [username, setUsername] = useState();
-  const [show1,setShow1] = useState(false);
-  const [title1,setTitle1] = useState();
+  const [show1, setShow1] = useState(false);
+  const [title1, setTitle1] = useState();
   const [mainContent, setMainContent] = useState();
   const [username1, setUsername1] = useState();
   const [email, setEmail] = useState();
@@ -37,21 +33,21 @@ const Dashboard = () => {
   const [address1, setAddress1] = useState();
   const [image, setimage] = useState();
   const [image1, setimage1] = useState();
-  const [file,setfile] = useState(null);
-  const[noteid,setnoteid] = useState();
-  
+  const [file, setfile] = useState(null);
+  const [noteid, setnoteid] = useState();
+
   function encodeImageFileAsURL(element) {
     var file = element;
     var reader = new FileReader();
     reader.onloadend = function () {
-       setimage(reader.result);
+      setimage(reader.result);
     };
     reader.readAsDataURL(file);
     return reader.result;
   }
 
-  const token = localStorage.getItem('jwt');
-  const userId = localStorage.getItem('id');
+  const token = localStorage.getItem("jwt");
+  const userId = localStorage.getItem("id");
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -60,48 +56,59 @@ const Dashboard = () => {
   };
   const handleClose = () => {
     setShow(false);
-    axios.put(`https://blog-app-backend-orpin.vercel.app/user/update/${userId}`,{
-      username : username1,
-      address:address1,
-    },config)
-    .then(()=>{
-      getUserData();
-       alert(`Successfully updated`);
-    })
+    axios
+      .put(
+        `https://blog-app-backend-orpin.vercel.app/user/update/${userId}`,
+        {
+          username: username1,
+          address: address1,
+        },
+        config
+      )
+      .then(() => {
+        getUserData();
+        alert(`Successfully updated`);
+      });
   };
   const handleClose1 = () => {
     setShow1(false);
-    axios.put(`https://blog-app-backend-orpin.vercel.app/notes/update/${noteid}`,{
-      title:title1,
-      mainContent:mainContent,
-      image:image
-    },config)
-    .then((res)=>{
-      window.location.reload();
-       alert(`Successfully updated`);
-    })
+    axios
+      .put(
+        `https://blog-app-backend-orpin.vercel.app/notes/update/${noteid}`,
+        {
+          title: title1,
+          mainContent: mainContent,
+          image: image,
+        },
+        config
+      )
+      .then((res) => {
+        window.location.reload();
+        alert(`Successfully updated`);
+      });
   };
   const handleClose2 = () => {
     setShow1(false);
     setShow(false);
   };
-   const handleShow = () => setShow(true);
-   const handleShow1 = (id) => {setShow1(true)
-     myblogs[0]?.data.map((e)=>{
-      if(e._id === id)
-      {
+  const handleShow = () => setShow(true);
+  const handleShow1 = (id) => {
+    setShow1(true);
+    myblogs[0]?.data.map((e) => {
+      if (e._id === id) {
         setnoteid(e._id);
         setTitle1(e.title);
         setMainContent(e.mainContent);
       }
-     })
+    });
   };
-  
 
-
-  const getUserData = ()=>{
+  const getUserData = () => {
     axios
-      .get(`https://blog-app-backend-orpin.vercel.app/user/get/${userId}`,config)
+      .get(
+        `https://blog-app-backend-orpin.vercel.app/user/get/${userId}`,
+        config
+      )
       .then((res) => {
         let array = [res.data];
         setmyData(array);
@@ -111,8 +118,7 @@ const Dashboard = () => {
       .catch((err) => {
         console.log(err);
       });
-
-  }
+  };
   if (myblogs === null || myblogs === undefined) {
     return (
       <>
@@ -120,14 +126,11 @@ const Dashboard = () => {
           <div id="shadow"></div>
           <div id="box"></div>
         </div>
-       
       </>
     );
   }
 
-   
-  if(userId)
-  {
+  if (userId) {
     return (
       <div className=" dashboard">
         <Modal className="text-white" show={show1} onHide={handleClose2}>
@@ -217,9 +220,13 @@ const Dashboard = () => {
             <Col sm={12} md={7} lg={8} className=" p-3 dashboardBlogs">
               <Container>
                 <div className="mx-2 border">
-                <Button variant="outline-light" className="mx-4 button align-items-center" href='/add'>
-                   Add Blog
-                </Button>
+                  <Button
+                    variant="outline-light"
+                    className="mx-4 button align-items-center"
+                    href="/add"
+                  >
+                    Add Blog
+                  </Button>
                 </div>
                 <Row className="mx-auto d-flex justify-content-start">
                   {myblogs[0]?.data.map((e) => {
@@ -236,22 +243,22 @@ const Dashboard = () => {
                               <div className="d-flex mb-3 userInfo align-items-center justify-content-between">
                                 <div className="dateAndTime d-flex align-items-center w-100 justify-content-between">
                                   <div className="d-flex align-items-center">
-                                  <img src="https://img.icons8.com/color/24/null/calendar--v1.png" />
-                                  <h6 className="px-2 fs-6 mt-2">
-                                    {e.createdOn.toLocaleString(undefined, {
-                                      timeZone: "Asia/Kolkata",
-                                    })}
-                                  </h6>
+                                    <img src="https://img.icons8.com/color/24/null/calendar--v1.png" />
+                                    <h6 className="px-2 fs-6 mt-2">
+                                      {e.createdOn.toLocaleString(undefined, {
+                                        timeZone: "Asia/Kolkata",
+                                      })}
+                                    </h6>
                                   </div>
                                   <div>
-                                  <button
-                                    className="my-auto border-0 bg-transparent"
-                                    onClick={() => {
-                                      handleShow1(e._id);
-                                    }}
-                                  >
-                                    <img src="https://img.icons8.com/ios-glyphs/22/FFFFFF/edit--v1.png" />
-                                  </button>
+                                    <button
+                                      className="my-auto border-0 bg-transparent"
+                                      onClick={() => {
+                                        handleShow1(e._id);
+                                      }}
+                                    >
+                                      <img src="https://img.icons8.com/ios-glyphs/22/FFFFFF/edit--v1.png" />
+                                    </button>
                                   </div>
                                 </div>
                               </div>
@@ -345,15 +352,13 @@ const Dashboard = () => {
         </Container>
       </div>
     );
-  }
-  else{
+  } else {
     return (
       <h4 style={{ color: "#fff" }} className="text-center">
         Please Log in
       </h4>
     );
   }
-  
-}
+};
 
-export default Dashboard
+export default Dashboard;

@@ -104,7 +104,6 @@ const Addblog = () => {
           <div id="shadow"></div>
           <div id="box"></div>
         </div>
-       
       </>
     );
   }
