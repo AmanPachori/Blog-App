@@ -1,101 +1,98 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Open+Sans:ital,wght@0,400;0,500;0,600;1,300;1,400;1,500&display=swap');
-:root{
-  --backgroundColor : #282c34;
-  --hoverColor : #d2d2d5;
-  --textBackground : #161a23;
-  --themecolor : #f85149;
-  --secondarythemecolor : #61dafb;
-  --buttoncolor : #30a14e;
-  --themelight : #fff;
-  --cardcolor :#0D1117;
-  font-family: 'Lora', serif;
-  font-family: 'Open Sans', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Open+Sans:ital,wght@0,400;0,500;0,600;1,300;1,400;1,500&display=swap");
+:root {
+  --backgroundColor: #282c34;
+  --hoverColor: #d2d2d5;
+  --textBackground: #161a23;
+  --themecolor: #f85149;
+  --secondarythemecolor: #61dafb;
+  --buttoncolor: #30a14e;
+  --themelight: #fff;
+  --cardcolor: #0d1117;
+  font-family: "Lora", serif;
+  font-family: "Open Sans", sans-serif;
 }
 .navbarLink,
-.Link{
-  font-family: 'Lora',serif;
+.Link {
+  font-family: "Lora", serif;
   font-size: 18px;
   font-weight: 500;
   transform: scale(1);
 }
-.Link:hover{
+.Link:hover {
   text-decoration: none;
   color: var(--hoverColor);
 }
-.title{
-  font-family: 'Lora',serif;
+.title {
+  font-family: "Lora", serif;
   font-size: 24px;
   font-weight: 600;
   font-style: italic;
-
 }
 
-.homeCard{
-height: 40vh;
-border-radius: 5px;
+.homeCard {
+  height: 40vh;
+  border-radius: 5px;
 }
 
-.userInfo h6{
-  font-family: 'Lora',serif;
+.userInfo h6 {
+  font-family: "Lora", serif;
   font-size: 16px;
   font-weight: 700;
   font-style: italic;
-
 }
-.homeCard .img{
+.homeCard .img {
   height: 55%;
 }
-h3{
-  font-family: 'Lora',serif;
+h3 {
+  font-family: "Lora", serif;
   font-size: 24px;
   font-weight: 700;
   color: var(--themelight);
 }
-h5{
-  font-family: 'Lora',serif;
+h5 {
+  font-family: "Lora", serif;
   font-weight: 700;
   color: var(--themelight);
 }
 
 /* -------------------------------Dashboard Css Starts ------------------------*/
-.heading{
-  text-align:center;
+.heading {
+  text-align: center;
   border-image-slice: 1;
-  width:100%;
-  color:var(--themelight)
+  width: 100%;
+  color: var(--themelight);
 }
-.header button{
-  background: none;
-  border : none
-}
-.blog{
-  color:var(--themelight);
-  text-align:center;
-  background-color: var(--backgroundColor);
-  font-family: 'Lora', serif;
-
-}
-.blog Card{
-  height: 300px;
-}
-.stats,
-.profile{
-  height: 20vh;
-  color:var(--themelight)
-}
-.profile{
-  height: 30vh;
-  background-color: var(--textBackground);
-}
-.profile button{
+.header button {
   background: none;
   border: none;
 }
-.blog img{
+.blog {
+  color: var(--themelight);
+  text-align: center;
+  background-color: var(--backgroundColor);
+  font-family: "Lora", serif;
+}
+.blog Card {
+  height: 300px;
+}
+.stats,
+.profile {
+  height: 20vh;
+  color: var(--themelight);
+}
+.profile {
+  height: 30vh;
+  background-color: var(--textBackground);
+}
+.profile button {
+  background: none;
+  border: none;
+}
+.blog img {
   width: 40%;
 }
 
-.blogImage{
+.blogImage {
   max-width: 750px;
   max-height: 750px;
 }
@@ -111,133 +108,135 @@ h5{
 }
 
 .Home,
-.dashboardBlogs{
+.dashboardBlogs {
   background-color: var(--backgroundColor);
 }
-.card{
-  background-color: var(--cardcolor);  
+.card {
+  background-color: var(--cardcolor);
   color: var(--themelight);
   border-radius: 5 !important;
 }
-.card Link{
+.card Link {
   font-size: 16px;
   color: var(--themecolor);
 }
-.author img{
+.author img {
   height: 40px;
   width: 40px;
   border-radius: 50%;
 }
 /* -------------------------------Home Css Ends---------------------------*/
 /* -------------------------------Auth Css Starts---------------------------*/
-.Signup{
+.Signup {
   background: var(--textBackground);
   max-width: 60vw;
 }
 
-.Card{
- color: var(--themelight)
+.Card {
+  color: var(--themelight);
 }
-.Card button{
-    background-color: var(--buttoncolor);
+.Card button {
+  background-color: var(--buttoncolor);
 }
-.Card button:hover{
-    background-color:  var(--buttoncolor);
+.Card button:hover {
+  background-color: var(--buttoncolor);
 }
-.Image img{
-    min-width: 200px;
-    min-height: 200px;
-    max-height: 400px;
-    max-width: 400px;
+.Image img {
+  min-width: 200px;
+  min-height: 200px;
+  max-height: 400px;
+  max-width: 400px;
 }
 
-.Link{ 
- text-decoration: none;
- color: var(--themelight);
+.Link {
+  text-decoration: none;
+  color: var(--themelight);
+}
+.auth {
+  height: 90vh;
 }
 
 /* -------------------------------Auth Css Ends---------------------------*/
 /* -------------------------------Add Blog Css starts---------------------------*/
-.addblog{
+.addblog {
   height: 85vh;
   background-color: var(--backgroundColor);
 }
-.textarea{
+.textarea {
   height: 30vh;
 }
 .dashboard,
-.Home{
+.Home {
   background-color: var(--backgroundColor);
   min-height: 100vh;
 }
-.categories{
-height: 16vh;
+.categories {
+  height: 16vh;
 }
-.category{
+.category {
   margin-top: auto;
   color: #000;
   padding: 5px 5px;
   border: 1px solid var(--secondarythemecolor);
   background-color: var(--textBackground);
 }
-.category button{
+.category button {
   border: none;
   background: none;
 }
 
 /* -------------------------------Add Blog Css Ends---------------------------*/
 /* -------------------------------User Profile Starts-------------------------*/
-.user{
+.user {
   max-width: 35vw;
   height: 48vh;
   background-color: var(--backgroundColor);
   color: var(--themelight);
 }
 
-.personalDetails img
-{
- width: 160px;
- height: 160px;
+.personalDetails img {
+  width: 160px;
+  height: 160px;
 }
-.image img{
+.image img {
   width: 120px;
   height: 120px;
 }
-.Blogs{
+.Blogs {
   display: flex;
   justify-content: center;
 }
-.blog{
+.blog {
   max-width: 65vw;
 }
-.blog p{
+.blog p {
   font-size: 20px;
 }
 @media screen and (max-width: 1247px) {
   .blog {
     max-width: 90vw;
   }
-  .blog p{
+  .blog p {
     font-size: 16px;
   }
-  .blogImage{
+  .blogImage {
     width: 60%;
   }
-  .user{
+  .user {
     max-width: 56vw !important;
   }
-  .userInfo{
+  .userInfo {
     width: 100% !important;
   }
-  .userInfo h6{
-    font-size:12px ;
+  .userInfo h6 {
+    font-size: 12px;
     width: fit-content;
   }
-  .homeNavbar Button{
-   font-size: 10px !important;
-   font-weight: 600;
-   margin-left: 2px !important;
-   margin-right: 2px !important;
+  .homeNavbar Button {
+    font-size: 10px !important;
+    font-weight: 600;
+    margin-left: 2px !important;
+    margin-right: 2px !important;
   }
 }
 
@@ -248,36 +247,48 @@ height: 16vh;
   /*
      animation: loader 5s linear infinite; 
   */
-  
+
   position: absolute;
   top: calc(50% - 20px);
   left: calc(50% - 20px);
 }
 @keyframes loader {
-  0% { left: -100px }
-  100% { left: 110%; }
+  0% {
+    left: -100px;
+  }
+  100% {
+    left: 110%;
+  }
 }
 #box {
   width: 50px;
   height: 50px;
   background: #fff;
-  animation: animate .5s linear infinite;
+  animation: animate 0.5s linear infinite;
   position: absolute;
   top: 0;
   left: 0;
   border-radius: 3px;
 }
 @keyframes animate {
-  17% { border-bottom-right-radius: 3px; }
-  25% { transform: translateY(9px) rotate(22.5deg); }
+  17% {
+    border-bottom-right-radius: 3px;
+  }
+  25% {
+    transform: translateY(9px) rotate(22.5deg);
+  }
   50% {
-    transform: translateY(18px) scale(1,.9) rotate(45deg) ;
+    transform: translateY(18px) scale(1, 0.9) rotate(45deg);
     border-bottom-right-radius: 40px;
   }
-  75% { transform: translateY(9px) rotate(67.5deg); }
-  100% { transform: translateY(0) rotate(90deg); }
-} 
-#shadow { 
+  75% {
+    transform: translateY(9px) rotate(67.5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(90deg);
+  }
+}
+#shadow {
   width: 50px;
   height: 5px;
   background: #000;
@@ -286,11 +297,11 @@ height: 16vh;
   top: 59px;
   left: 0;
   border-radius: 50%;
-  animation: shadow .5s linear infinite;
+  animation: shadow 0.5s linear infinite;
 }
 @keyframes shadow {
   50% {
-    transform: scale(1.2,1);
+    transform: scale(1.2, 1);
   }
 }
 h4 {
@@ -299,20 +310,20 @@ h4 {
   left: 20px;
   margin: 0;
   font-weight: 200;
-  opacity: .5;
+  opacity: 0.5;
   font-family: sans-serif;
   color: #fff;
 }
 
-.userInfo img{
+.userInfo img {
   width: 24px;
   height: 24px;
 }
 
-.userInfo{
+.userInfo {
   width: 50%;
 }
-.Category div{
+.Category div {
   width: fit-content;
 }
 /*-------------------------------- Loader Ends -----------------------------*/

@@ -38,81 +38,86 @@ const Signup = () => {
     }
   };
   return (
-    <div>
+    <>
       <Navbar />
-      <Container className="Signup shadow-lg p-5 my-5 rounded">
-        <Row>
-          <Col className="Image d-flex align-items-center justify-content-center">
-            <img src="https://cdn.dribbble.com/users/1579322/screenshots/6587273/blue_boy_typing_nothought.gif"></img>
-          </Col>
-          <Col className="p-2 my-2">
-            <div className="p-2 Card text-start">
-              <h2>Sign Up</h2>
-              <form>
-                <div className="mb-3">
-                  <label htmlFor="Name" className="form-label">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    value={username}
-                    name="username"
-                    onChange={(e) => {
-                      setUsername(e.target.value);
-                    }}
-                    className="form-control"
-                    id="Name"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="exampleInputEmail1" className="form-label">
-                    Email address
-                  </label>
-                  <input
-                    type="email"
-                    value={email}
-                    name="email"
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                    }}
-                    className="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="exampleInputPassword1" className="form-label">
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    value={password}
-                    name="password"
-                    onChange={(e) => {
-                      setPassword(e.target.value);
-                    }}
-                    className="form-control"
-                    id="exampleInputPassword1"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  onClick={submit}
-                  className="btn btn-primary my-2"
-                >
-                  Sign Up
-                </button>
-                <br />
-                <Link className="p-2 Link" to="/signin">
-                  Already have an account ? Sign In
-                </Link>
-              </form>
-            </div>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+      <div className="d-flex justify-content-center align-items-center auth">
+        <Container className="Signup shadow-lg p-5 my-5 rounded">
+          <Row>
+            <Col className="Image d-flex align-items-center justify-content-center">
+              <img src="https://cdn.dribbble.com/users/1579322/screenshots/6587273/blue_boy_typing_nothought.gif"></img>
+            </Col>
+            <Col className="p-2 my-2">
+              <div className="p-2 Card text-start">
+                <h2>Sign Up</h2>
+                <form>
+                  <div className="mb-3">
+                    <label htmlFor="Name" className="form-label">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      value={username}
+                      name="username"
+                      onChange={(e) => {
+                        setUsername(e.target.value);
+                      }}
+                      className="form-control"
+                      id="Name"
+                      aria-describedby="emailHelp"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="exampleInputEmail1" className="form-label">
+                      Email address
+                    </label>
+                    <input
+                      type="email"
+                      value={email}
+                      name="email"
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                      }}
+                      className="form-control"
+                      id="exampleInputEmail1"
+                      aria-describedby="emailHelp"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label
+                      htmlFor="exampleInputPassword1"
+                      className="form-label"
+                    >
+                      Password
+                    </label>
+                    <input
+                      type="password"
+                      value={password}
+                      name="password"
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                      }}
+                      className="form-control"
+                      id="exampleInputPassword1"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    onClick={submit}
+                    className="btn btn-primary my-2"
+                  >
+                    Sign Up
+                  </button>
+                  <br />
+                  <Link className="p-2 Link" to="/signin">
+                    Already have an account ? Sign In
+                  </Link>
+                </form>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    </>
   );
 };
 
