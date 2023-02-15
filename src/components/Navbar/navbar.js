@@ -22,39 +22,35 @@ const navbar = () => {
       className="mb-2"
     >
       <Container>
-        <div>
-          <Navbar.Brand href="/" className="title">
-            Blog
-          </Navbar.Brand>
-        </div>
-        <div>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto navbarLink">
-              <Nav.Link style={{ color: "#fff" }} href="/">
-                Home
+        <Navbar.Brand href="/" className="title">
+          Blog
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto navbarLink">
+            <Nav.Link style={{ color: "#fff" }} href="/">
+              Home
+            </Nav.Link>
+            <Nav.Link style={{ color: "#fff" }} href="/dashboard">
+              Dashboard
+            </Nav.Link>
+            {!token ? (
+              <Nav.Link style={{ color: "#fff" }} href="/Signin">
+                Signin
               </Nav.Link>
-              <Nav.Link style={{ color: "#fff" }} href="/dashboard">
-                Dashboard
+            ) : (
+              <Nav.Link
+                style={{ color: "#fff" }}
+                href="/"
+                onClick={() => {
+                  logOut();
+                }}
+              >
+                Logout
               </Nav.Link>
-              {!token ? (
-                <Nav.Link style={{ color: "#fff" }} href="/Signin">
-                  Signin
-                </Nav.Link>
-              ) : (
-                <Nav.Link
-                  style={{ color: "#fff" }}
-                  href="/"
-                  onClick={() => {
-                    logOut();
-                  }}
-                >
-                  Logout
-                </Nav.Link>
-              )}
-            </Nav>
-          </Navbar.Collapse>
-        </div>
+            )}
+          </Nav>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );
