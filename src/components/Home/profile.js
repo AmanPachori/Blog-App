@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar/navbar";
-
-import { Container, Card, Button, Row, Col, Nav } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import "../../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import { getUser } from "../../data/data";
 
 const Profile = () => {
