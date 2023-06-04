@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import Navbar from "../Navbar/navbar";
-import { Container, Button, Row, Col } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import "../../App.css";
 import axios from "axios";
-import { getUser } from "../../data/data";
 const url = "https://blog-app-backend-orpin.vercel.app/notes/add";
 const token = localStorage.getItem("jwt");
 const config = {
