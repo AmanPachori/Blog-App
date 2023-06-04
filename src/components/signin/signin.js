@@ -4,7 +4,6 @@ import Navbar from "../Navbar/navbar";
 import { Link } from "react-router-dom";
 import "../../App.css";
 import axios from "axios";
-
 const url = "https://blog-app-backend-orpin.vercel.app/user/signin";
 const Signin = () => {
   const [email, setEmail] = useState("");
