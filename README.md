@@ -1,8 +1,8 @@
 <div align ="center">
 
-# Blog App
-A blog app is developed using NodeJS and ReactJS with many feature such as - View Blogs, write your own blog view and update your profile etc. 
+# WriteHub
 
+A blog app is developed using NodeJS and ReactJS with many feature such as - View Blogs, write your own blog view and update your profile etc.
 
 </div>
 
@@ -12,24 +12,24 @@ A blog app is developed using NodeJS and ReactJS with many feature such as - Vie
 
 <img width=50% height=90% src=https://user-images.githubusercontent.com/84467090/211310770-dfbccc4c-4568-4bb8-8054-2f4f54b6ed6c.png><img width=50% height=90% src=https://user-images.githubusercontent.com/84467090/211311275-5211d7ff-826f-4b53-805b-5e4f78d1ce97.png>
 
-
-
-
-
 <div align ="center">
 
 # Features
+
 </div>
 
 #### This App aims to implement the logic of restful routing with Express framework using nodeJs, and MongoDB.
+
 <br/>
 
 #### The App provides functionality to the user for creating, adding, editing, and deleting the blog.
+
 <br/>
 
 <div align ="center">
 
 # Tech Stack
+
 </div>
 <div align ="center">
 <img src="https://img.icons8.com/color/64/000000/mongodb.png"/>
