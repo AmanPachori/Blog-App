@@ -74,15 +74,16 @@ const Blog = () => {
                   {category?.map((e) => {
                     return (
                       <div>
-                        <p className="fs-6 mx-2 border p-2 rounded fw-bolder">
-                          {e}
-                        </p>
+                        <p className="  mx-2 border p-2 rounded lead h6">{e}</p>
                       </div>
                     );
                   })}
                 </div>
               </div>
-              <p style={{ color: "#fff" }} className="pt-1 my-1 px-1">
+              <p
+                style={{ color: "#fff", whiteSpace: "pre-line" }}
+                className="pt-1 my-1 text-start py-2 px-4"
+              >
                 {mainContent}
               </p>
             </div>
