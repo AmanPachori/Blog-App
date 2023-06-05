@@ -22,7 +22,7 @@ const navbar = () => {
     >
       <Container>
         <Navbar.Brand href="/" className="title">
-          Blog
+          WriteHub
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
