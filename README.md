@@ -18,11 +18,15 @@ A blog app is developed using NodeJS and ReactJS with many feature such as - Vie
 
 </div>
 
-#### This App aims to implement the logic of restful routing with Express framework using nodeJs, and MongoDB.
+#### Allow users to register, log in, and manage their accounts. Implement authentication mechanisms like JWT or session-based authentication
 
 <br/>
 
-#### The App provides functionality to the user for creating, adding, editing, and deleting the blog.
+#### Set up authorization rules to control access to blog creation, editing, and deleting features
+
+<br/>
+
+#### Enable users to create, edit, and delete blog posts. Implement a user-friendly editor for composing and formatting blog content
 
 <br/>
 
