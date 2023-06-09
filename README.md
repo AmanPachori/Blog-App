@@ -14,6 +14,7 @@ A blog app is developed using NodeJS and ReactJS with many feature such as - Vie
 
 <div align ="center">
 
+  
 # Features
 
 </div>
