@@ -7,7 +7,6 @@ import { Container, Card, Button, Row, Col, Nav } from "react-bootstrap";
 import "../../App.css";
 import axios from "axios";
 import { getUserBlog } from "../../data/data";
-const url = "";
 
 const Dashboard = () => {
   useEffect(() => {
